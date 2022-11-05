@@ -1,15 +1,24 @@
 #Apple(a) - "english": "Apple", "Українська": "Яблоко"
 
+#[{параграф: ('Еnglish-Українська','А'), "english": "point", "українська": "точка"},
 
-lol = []
+MainStruct = []
 while True:
-    rer = input("Введите слово:")
-    rer_1 = input("Введите перевод слова:")
-    a = {"English:": rer, "Українська:": rer_1}
-    c = ('Еnglish-Українська', rer[0])
-    ter = (f'{c} - {a}')
-    lol.append(ter)
-    print(ter)
+    items = ['параграф', 'English', 'Українська']
+    SubStructDict = dict.fromkeys(items)
+    EngWord = input("Введите слово:")
+    UaWord = input("Введите перевод слова:")
+    SubStructTuple = ("Еnglish-Українська", EngWord[0])
+    SubStructDict['параграф'] = SubStructTuple
+    SubStructDict['English'] = EngWord
+    SubStructDict['Українська'] = UaWord
+    MainStruct.append(SubStructDict)
+    print(MainStruct)
+    break
+
+
+
+
 
    # drr = input("Хотите вызвать меню?")
   #  if drr == "Да":
