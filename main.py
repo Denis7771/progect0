@@ -1,30 +1,30 @@
-#Apple(a) - "english": "Apple", "Українська": "Яблоко"
-
-#[{параграф: ('Еnglish-Українська','А'), "english": "point", "українська": "точка"},
-
-MainStruct = []
-while True:
+def StructAdd(GetStruct):
     items = ['параграф', 'English', 'Українська']
     SubStructDict = dict.fromkeys(items)
     EngWord = input("Введите слово:")
-    if EngWord == 'stop':
-        break
     UaWord = input("Введите перевод слова:")
-    if UaWord == 'stop':
-        break
     SubStructTuple = ("Еnglish-Українська", EngWord[0])
     SubStructDict['параграф'] = SubStructTuple
     SubStructDict['English'] = EngWord
     SubStructDict['Українська'] = UaWord
-    MainStruct.append(SubStructDict)
-    print(MainStruct)
+    GetStruct.append(SubStructDict)
 
-
-
-
-
-   # drr = input("Хотите вызвать меню?")
-  #  if drr == "Да":
-  #      q1 = input("Показать весь словарь?")
- #       if q1 == 'Да':
-  #          for red in rer:
+MainStruct = list()
+while True:
+    print('''----------
+    додати слово -- add
+    показати словник -- vision
+    видалити слово -- del
+    сортувати -- sort
+    вихід -- exit
+    ''')
+    EventMenu = input("Зроби правильний вибір: ")
+    if EventMenu == "add":
+        StructAdd(MainStruct)
+    elif EventMenu == "exit":
+        MainStruct.clear()
+        del MainStruct
+        print("Бувай!!!")
+        break
+    elif EventMenu == "vision":
+        print(MainStruct)
