@@ -7,14 +7,17 @@ while True:
     items = ['параграф', 'English', 'Українська']
     SubStructDict = dict.fromkeys(items)
     EngWord = input("Введите слово:")
+    if EngWord == 'stop':
+        break
     UaWord = input("Введите перевод слова:")
+    if UaWord == 'stop':
+        break
     SubStructTuple = ("Еnglish-Українська", EngWord[0])
     SubStructDict['параграф'] = SubStructTuple
     SubStructDict['English'] = EngWord
     SubStructDict['Українська'] = UaWord
     MainStruct.append(SubStructDict)
     print(MainStruct)
-    break
 
 
 
