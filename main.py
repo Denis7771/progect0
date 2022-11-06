@@ -1,3 +1,6 @@
+import sys
+
+
 def StructAdd(GetStruct):
     items = ['параграф', 'English', 'Українська']
     SubStructDict = dict.fromkeys(items)
@@ -9,7 +12,19 @@ def StructAdd(GetStruct):
     SubStructDict['Українська'] = UaWord
     GetStruct.append(SubStructDict)
 
+
+def StructVision(GetStruct):
+    for SubStruct in GetStruct:
+        print(SubStruct)
+    print(f"\n Розмір словника: {sys.getsizeof(GetStruct)} байт")
+
+
+def SortStruct(e):
+    return e['параграф'][1]
+
+
 MainStruct = list()
+
 while True:
     print('''----------
     додати слово -- add
@@ -18,7 +33,7 @@ while True:
     сортувати -- sort
     вихід -- exit
     ''')
-    EventMenu = input("Зроби правильний вибір: ")
+    EventMenu = input("Виберіть потрібний пункт меню: ")
     if EventMenu == "add":
         StructAdd(MainStruct)
     elif EventMenu == "exit":
@@ -27,4 +42,6 @@ while True:
         print("Бувай!!!")
         break
     elif EventMenu == "vision":
-        print(MainStruct)
+        StructVision(MainStruct)
+    elif EventMenu == "sort":
+        MainStruct.sort(key=SortStruct)
