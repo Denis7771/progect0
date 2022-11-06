@@ -6,6 +6,12 @@ def StructVision(GetStruct1):
         print(SubStruct)
 
 
+def StructDel(GetStruct):
+    DelWord = input("Видалити слово: ")
+    for SubStruct in GetStruct:
+        if SubStruct['English'] == DelWord:
+            GetStruct.pop(GetStruct.index(SubStruct))
+
 def StructAdd(GetStruct):
     items = ['параграф', 'English', 'Українська']
     SubStructDict = dict.fromkeys(items)
@@ -48,5 +54,10 @@ while True:
         print(f"\n Розмір словника: {sys.getsizeof(MainStruct)} байт")
     elif EventMenu == "sort":
         MainStruct.sort(key=SortStruct)
+    elif EventMenu == "del":
+        StructDel(MainStruct)
+        print()
+        StructVision(MainStruct)
+        print(f"\n Розмір словника: {sys.getsizeof(MainStruct)} байт")
     else:
         continue
