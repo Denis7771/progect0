@@ -1,6 +1,11 @@
 import sys
 
 
+def StructVision(GetStruct1):
+    for SubStruct in GetStruct1:
+        print(SubStruct)
+
+
 def StructAdd(GetStruct):
     items = ['параграф', 'English', 'Українська']
     SubStructDict = dict.fromkeys(items)
@@ -11,12 +16,6 @@ def StructAdd(GetStruct):
     SubStructDict['English'] = EngWord
     SubStructDict['Українська'] = UaWord
     GetStruct.append(SubStructDict)
-
-
-def StructVision(GetStruct):
-    for SubStruct in GetStruct:
-        print(SubStruct)
-    print(f"\n Розмір словника: {sys.getsizeof(GetStruct)} байт")
 
 
 def SortStruct(e):
@@ -36,6 +35,9 @@ while True:
     EventMenu = input("Виберіть потрібний пункт меню: ")
     if EventMenu == "add":
         StructAdd(MainStruct)
+        print()
+        StructVision(MainStruct)
+        print(f"\n Розмір словника: {sys.getsizeof(MainStruct)} байт")
     elif EventMenu == "exit":
         MainStruct.clear()
         del MainStruct
@@ -43,5 +45,8 @@ while True:
         break
     elif EventMenu == "vision":
         StructVision(MainStruct)
+        print(f"\n Розмір словника: {sys.getsizeof(MainStruct)} байт")
     elif EventMenu == "sort":
         MainStruct.sort(key=SortStruct)
+    else:
+        continue
